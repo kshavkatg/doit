@@ -43,3 +43,32 @@ export const useTasks = (selectedProjject) => {
 
   return { tasks, archivedTasks }
 }
+
+
+
+export const useProjects = () => {
+  const [projects, setProjects] = useState([])
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('projects')
+      .where('userId', '==', 'MhIUlSd6G9Cp2SRqX9Oz')
+      .orderBy('projectId')
+      .get()
+      .then(snapshot => {
+        const allProjects = snapshot.docs.map(project => ({
+          ...project.data(),
+          docId: project.id
+        }))
+
+        //here i will use the useMemo
+        if(JSON.stringify(allProjects) !== JSON.stringify(projects)) {
+          setProjects(allProjects)
+        }
+      })
+
+  }, [projects])
+
+  return { projects, setProjects }
+}
