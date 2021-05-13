@@ -13,7 +13,7 @@ export const useTasks = (selectedProjject) => {
     let unsubscribe = firebase
       .firestore()
       .collection('tasks')
-      .where('userId', '==', 'MhIUlSd6G9Cp2SRqX9Oz')
+      .where('userId', '==', 'vgWJG1rdEs1wuKBQEL7C')
 
     unsubscribe = selectedProjject && !collatedTaskExist(selectedProjject)
       ? (unsubscribe = unsubscribe.where('projectId', '==', selectedProjject))
@@ -24,7 +24,8 @@ export const useTasks = (selectedProjject) => {
       : unsubscribe
 
     unsubscribe = unsubscribe.onSnapshot(snapshot => {
-      const newTasks = snapshot.map(task => ({
+      console.log(snapshot.docs)
+      const newTasks = snapshot.docs.map(task => ({
         id: task.id,
         ...task.data()
       }))
@@ -53,7 +54,7 @@ export const useProjects = () => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'MhIUlSd6G9Cp2SRqX9Oz')
+      .where('userId', '==', 'vgWJG1rdEs1wuKBQEL7C')
       .orderBy('projectId')
       .get()
       .then(snapshot => {
