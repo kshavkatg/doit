@@ -3,10 +3,10 @@ import { useProjects } from '../hooks'
 
 export const SelectedProjectContext = createContext();
 export const SelectedProjectsProvider = ({ children }) => {
-  const { SelectedProjects, setSelectedProjects } = useProjects();
+  const { projects, setProjects } = useProjects();
 
   return (
-    <SelectedProjectContext.Provider value={{SelectedProjects, setSelectedProjects}} >
+    <SelectedProjectContext.Provider value={{projects, setProjects}} >
       {children}
     </SelectedProjectContext.Provider>
   )
