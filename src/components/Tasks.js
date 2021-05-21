@@ -6,7 +6,6 @@ export const Tasks = () => {
   const {tasks} = useTasks('1')
 
   const projectName = ''
-  console.log(tasks)
 
   return (
     <div className="tasks" data-testid="tasks">
