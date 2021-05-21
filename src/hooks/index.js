@@ -62,7 +62,6 @@ export const useProjects = () => {
           ...project.data(),
           docId: project.id
         }))
-
         //here i will use the useMemo
         if(JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects)

@@ -1,15 +1,14 @@
-import React, { createContext, useContext } from 'react'
-import { useProjects } from '../hooks'
+import React, { createContext, useContext, useState } from 'react'
 
 export const SelectedProjectContext = createContext();
-export const SelectedProjectsProvider = ({ children }) => {
-  const { projects, setProjects } = useProjects();
+export const SelectedProjectProvider = ({ children }) => {
+  const [ selectedProject, setSelectedProject ] = useState('INBOX');
 
   return (
-    <SelectedProjectContext.Provider value={{projects, setProjects}} >
+    <SelectedProjectContext.Provider value={{ selectedProject, setSelectedProject }} >
       {children}
     </SelectedProjectContext.Provider>
   )
 }
 
-export const useSelectedProjectsValue = () => useContext(SelectedProjectContext) 
+export const useSelectedProjectValue = () => useContext(SelectedProjectContext) 

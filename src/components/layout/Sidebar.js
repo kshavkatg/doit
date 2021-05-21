@@ -5,13 +5,11 @@ import {
   FaRegCalendarAlt,
   FaRegCalendar,
 } from 'react-icons/fa'
-import { useSelectedProjectsValue } from '../../context'
+import { AddProject } from '../AddProject'
 import { Projects } from '../Projects'
 
 export const Sidebar = () => {
-  const { setSelectedProjects } = useSelectedProjectsValue
-  const [ active, setActive ] = useState('INBOX')
-  const [ showProjects, setShowProjects ] = useState(true)
+
 
   return (
     <div className="sidebar" data-testid="sedebar">
@@ -33,8 +31,8 @@ export const Sidebar = () => {
         <span><FaChevronDown /></span>
         <h2> Projects</h2>
       </div>
-      <ul className="sidebar_projects"></ul>
-      <Projects />
+      <ul className="sidebar_projects"><Projects /></ul>
+      <AddProject />
     </div>
   )
 }
