@@ -427,6 +427,8 @@ header {
   width: 100%;
 
   &_inner {
+    display: flex;
+    flex-direction: column;
     @include box-overlay();
     z-index: 400;
     width: 200px;
@@ -728,4 +730,13 @@ header {
   &_cancel {
     @include cancel();
   }
+
+  &_text,
+  &_plus {
+    &:hover {
+        font-weight: bold;
+        background-color: white;
+      }
+  }
+  
 }
