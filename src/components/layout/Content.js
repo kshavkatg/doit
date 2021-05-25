@@ -4,9 +4,9 @@ import { Sidebar } from './Sidebar'
 
 export const Content = () => {
   return (
-    <div>
+    <section className="content">
       <Sidebar />
       <Tasks />
-    </div>
+    </section>
   )
 }
