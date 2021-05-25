@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelectedProjectValue } from '../context'
 import { firebase } from '../firebase'
 import moment from 'moment'
+import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa'
 
 export const AddTasks = ({ 
   shouldShowMain = false,
@@ -115,6 +116,20 @@ export const AddTasks = ({
                 Cancel
               </span>
             )}
+            <span
+              className="add-task_project"
+              data-testid="show-project-overlay"
+              onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+            >
+              <FaRegListAlt />
+            </span>
+            <span
+              className="add-task_date"
+              data-testid="show-task-date-overlay"
+              onClick={() => setShowTaskDate(!showTaskDate)}
+            >
+              <FaRegCalendarAlt />
+            </span>
         </div>
       )}
     </div>
