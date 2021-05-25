@@ -47,7 +47,6 @@ export const AddTasks = ({
           setShowProjectOverlay(false)
         })
     )
-
    }
 
   return (
@@ -63,6 +62,59 @@ export const AddTasks = ({
         >
           <span className="add-task_plus">+</span>
           <span className="add-task_text">Add Task</span>
+        </div>
+      )}
+
+      {(showMain || showQuickAddTask) && (
+        <div className="add-task_main" data-testid="add-task-main">
+          {showQuickAddTask && (
+            <>
+              <div data-testid="quick-add-task">
+                <h2 className="header">Quick Add Task</h2>
+                <span 
+                  className="add-task_cancel-x"
+                  data-testid="add-task-quick-cancel"
+                  onClick={() => {
+                    setShowMain(false)
+                    setShowProjectOverlay(false)
+                    setShowQuikAddTask(false)
+                  }}
+                >
+                  x
+                </span>
+              </div>
+            </>
+          )}
+          <p>Project overlay here</p>
+          <p>TaskDate here</p>
+          <input
+            className="add-task_content"
+            data-testid="add-task-content"
+            type="text"
+            value={task}
+            placeholder='Name your task'
+            onChange={e => setTask(e.target.value)}
+          />
+          <button
+            type="button"
+            className="add-task_submit"
+            data-testid="add-task"
+            onClick={() => addTask()}
+            >
+              Add Task
+            </button>
+            {!showQuickAddTask && (
+              <span
+                className="add-task_cancel"
+                data-testid="add-task-main-cancel"
+                onClick={() => {
+                  setShowMain(false)
+                  setShowProjectOverlay(false)
+                }}
+              >
+                Cancel
+              </span>
+            )}
         </div>
       )}
     </div>

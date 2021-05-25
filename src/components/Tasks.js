@@ -22,8 +22,6 @@ export const Tasks = () => {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name
   }
 
-
-
   return (
     <div className="tasks" data-testid="tasks">
       <h2 data-testid="project-name">{projectName}</h2>
