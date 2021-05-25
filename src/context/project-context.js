@@ -4,7 +4,6 @@ import { useProjects } from '../hooks';
 export const ProjectContext = createContext();
 export const ProjectsProvider = ({ children }) => {
   const { projects, setProjects } = useProjects();
-  console.log(projects)
   return (
     <ProjectContext.Provider value={{projects, setProjects}} >
       {children}

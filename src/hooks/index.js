@@ -24,7 +24,6 @@ export const useTasks = (selectedProjject) => {
       : unsubscribe
 
     unsubscribe = unsubscribe.onSnapshot(snapshot => {
-      console.log(snapshot.docs)
       const newTasks = snapshot.docs.map(task => ({
         id: task.id,
         ...task.data()
