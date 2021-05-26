@@ -3,6 +3,7 @@ import { useSelectedProjectValue } from '../context'
 import { firebase } from '../firebase'
 import moment from 'moment'
 import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa'
+import { ProjectOverlay } from './ProjectOverlay'
 
 export const AddTasks = ({ 
   shouldShowMain = false,
@@ -28,7 +29,6 @@ export const AddTasks = ({
     } else if (projectId === 'NEXT_7') {
       collatedDate = moment().add(7, 'days').format('DD/MM/YYYY')
     }
-
     return (
       task && projectId && 
       firebase
@@ -86,7 +86,11 @@ export const AddTasks = ({
               </div>
             </>
           )}
-          <p>Project overlay here</p>
+          <ProjectOverlay 
+            setProject={setProject} 
+            showProjectOverlay={showProjectOverlay} 
+            setShowProjectOverlay={setShowProjectOverlay} 
+          />
           <p>TaskDate here</p>
           <input
             className="add-task_content"
