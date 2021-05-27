@@ -22,8 +22,8 @@ export const ProjectOverlay = ({
               key={i}
               data-testid="project-overlay-action"
               onClick={() => {
-                setProject(project)
-                setShowProjectOverlay(false)
+                setProject(project.projectId)
+                setShowProjectOverlay(!showProjectOverlay)
             }}
             >
               {project.name}

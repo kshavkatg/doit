@@ -44,7 +44,7 @@ $generic-bg: #db4c3f;
   -webkit-box-shadow: $generic-box-shadow;
   box-shadow: $generic-box-shadow;
   position: absolute;
-  width: 100%;
+  width: 97%;
   z-index: 1;
   top: 85px;
   border-radius: 3px;
@@ -114,7 +114,7 @@ $generic-bg: #db4c3f;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  line-height: 18px;
+  line-height: 30px;
   color: #333;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -659,24 +659,13 @@ header {
     @include task-item();
     padding: 0;
 
-    div:nth-child(1) {
-      padding: 10px;
-      width: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-
-      span:first-of-type {
-        margin-right: 10px;
-
-        svg {
-          fill: grey;
-        }
+    span:first-of-type {
+      margin-right: 10px;
+      svg {
+        fill: grey;
       }
     }
+    
   }
 }
 
