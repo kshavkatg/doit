@@ -10,7 +10,7 @@ export const AddTasks = ({
   shouldShowMain = false,
   showAddTaskMain = true,
   showQuickAddTask,
-  setShowQuikAddTask
+  setShowQuickAddTask
 }) => {
   const [task, setTask] = useState('')
   const [taskDate, setTaskDate] = useState('')
@@ -79,7 +79,7 @@ export const AddTasks = ({
                   onClick={() => {
                     setShowMain(false)
                     setShowProjectOverlay(false)
-                    setShowQuikAddTask(false)
+                    setShowQuickAddTask(false)
                   }}
                 >
                   x
@@ -109,7 +109,10 @@ export const AddTasks = ({
             type="button"
             className="add-task_submit"
             data-testid="add-task"
-            onClick={() => addTask()}
+            onClick={() => {
+              addTask()
+              setShowQuickAddTask(false)
+            }}
             >
               Add Task
             </button>
