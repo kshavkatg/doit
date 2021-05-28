@@ -28,7 +28,7 @@ export const Tasks = () => {
       <ul className="tasks_list">
         {tasks.map(task => (
           <li key={task.id}>
-            <Checkbox />
+            <Checkbox id={task.id} />
             <span>{task.task}</span>
           </li>
         ) )}

@@ -8,7 +8,7 @@ export const Checkbox = ({id}) => {
       .firestore()
       .collection('tasks')
       .doc(id)
-      .update({ archived: true })
+      .update({ archived: true, })
   }
 
   return (  
