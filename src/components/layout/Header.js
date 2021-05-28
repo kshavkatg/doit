@@ -17,7 +17,10 @@ export const Header = ({ darkMode, setDarkMode }) => {
             <li
               data-testid="quick-add-task-action"
               className="settings_add"
-              onClick={() => setShowQuickAddTask(true)}
+              onClick={() => {
+                setShowQuickAddTask(true)
+                setShouldShowMain(false)
+              }}
             >
               +
             </li>

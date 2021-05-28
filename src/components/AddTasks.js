@@ -116,7 +116,7 @@ export const AddTasks = ({
             >
               Add Task
             </button>
-            {!showQuickAddTask && (
+            {(!showQuickAddTask && showMain) && (
               <span
                 className="add-task_cancel"
                 data-testid="add-task-main-cancel"

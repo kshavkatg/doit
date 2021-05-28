@@ -260,7 +260,13 @@ $generic-bg: #db4c3f;
       font-weight: bold;
     }
   }
-}
+  }
+
+  .add-task_overlay
+  .add-task_main  {
+    color: white;
+    background-color: #303030;
+  }
 }
 
 /* Header
