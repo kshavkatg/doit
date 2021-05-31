@@ -10,25 +10,26 @@ export const useTasks = (selectedProjject) => {
   const [archivedTasks, setArchivedTasks] = useState([])
 
   useEffect(() => {
-    let unsubscribe = firebase
+    let getTasks = firebase
       .firestore()
       .collection('tasks')
       .where('userId', '==', 'vgWJG1rdEs1wuKBQEL7C')
+      
+    
+    getTasks = selectedProjject && !collatedTaskExist(selectedProjject)             // if there is project selected
+      ? (getTasks = getTasks.where('projectId', '==', selectedProjject))
+      : selectedProjject === 'TODAY'                                                // if TODAY is selected
+      ? (getTasks = getTasks.where('date', '==', moment().format('DD/MM/YYYY')))
+      : selectedProjject === 'INBOX'                                                // if INBOX is selected
+      ? (getTasks = getTasks.where('date', '==', ''))
+      : getTasks
 
-    unsubscribe = selectedProjject && !collatedTaskExist(selectedProjject)
-      ? (unsubscribe = unsubscribe.where('projectId', '==', selectedProjject))
-      : selectedProjject === 'TODAY'
-      ? (unsubscribe = unsubscribe.where('date', '==', moment().format('DD/MM/YYYY')))
-      : selectedProjject === 'INBOX'
-      ? (unsubscribe = unsubscribe.where('date', '==', ''))
-      : unsubscribe
-
-    unsubscribe = unsubscribe.onSnapshot(snapshot => {
+    getTasks = getTasks.onSnapshot(snapshot => {
       const newTasks = snapshot.docs.map(task => ({
         id: task.id,
-        ...task.data()
+        ...task.data(),
       }))
-
+      
       setTasks(
         selectedProjject === 'NEXT_7'
         ? newTasks.filter(task => moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7
@@ -37,8 +38,8 @@ export const useTasks = (selectedProjject) => {
       )
       setArchivedTasks(newTasks.filter(task => task.archived !== false))
     })
-
-    return () => unsubscribe()
+    console.log(`selectedProject from useTasks: ${selectedProjject}`)
+    return () => getTasks()
   }, [selectedProjject])
 
   return { tasks, archivedTasks }
@@ -58,13 +59,17 @@ export const useProjects = () => {
       .get()
       .then(snapshot => {
         const allProjects = snapshot.docs.map(project => ({
-          ...project.data(),
+          name: project.data().name,
+          userId: project.data().userId,
+          projectId: project.data().projectId,
           docId: project.id,
         }))
-        console.log(JSON.stringify(allProjects) !== JSON.stringify(projects))
+        //console.log(JSON.stringify(allProjects) !== JSON.stringify(projects))
         if(JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects)
         }
+        console.log(snapshot.docs[1].data())
+        console.log(projects)
       })
 
   }, [projects])

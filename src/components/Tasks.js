@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Checkbox } from './Checkbox'
 import { useTasks } from '../hooks'
 import { useProjectsValue, useSelectedProjectValue } from '../context'
@@ -21,7 +21,7 @@ export const Tasks = () => {
   if (collatedTaskExist(selectedProject) && selectedProject) {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name
   }
-
+  console.log(projectName)
   return (
     <div className="tasks" data-testid="tasks">
       <h2 data-testid="project-name">{projectName}</h2>

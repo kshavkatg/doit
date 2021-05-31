@@ -8,7 +8,7 @@ export const AddProject = ({ shouldShow = false }) => {
   const [projectName, setProjectName] = useState('')
 
   const projectId = generatePushID()
-  const { setProjects } = useProjectsValue()
+  const { projects, setProjects } = useProjectsValue()
 
   const addProject = () => 
     projectName && 
@@ -18,13 +18,15 @@ export const AddProject = ({ shouldShow = false }) => {
       .add({
         projectId,
         name: projectName,
-        userId: 'vgWJG1rdEs1wuKBQEL7C'
+        userId: 'vgWJG1rdEs1wuKBQEL7C',
       })
       .then(() => {
-        setProjects([])
+        setProjects([...projects])
         setProjectName('')
         setShow(false)
       })
+
+      //console.log(projects)
 
   return (
     <div className="add-project" data-testid="add-project">

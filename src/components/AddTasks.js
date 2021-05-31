@@ -111,7 +111,6 @@ export const AddTasks = ({
             data-testid="add-task"
             onClick={() => {
               addTask()
-              setShowQuickAddTask(false)
             }}
             >
               Add Task
