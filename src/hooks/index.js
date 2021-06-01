@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import moment from 'moment'
 import { firebase } from '../firebase'
-import { collatedTaskExist } from '../helpers/'
-
-
+import { collatedTaskExist } from '../helpers'
 
 export const useTasks = (selectedProjject) => {
   const [tasks, setTasks] = useState([])
@@ -16,11 +14,11 @@ export const useTasks = (selectedProjject) => {
       .where('userId', '==', 'vgWJG1rdEs1wuKBQEL7C')
       
     
-    getTasks = selectedProjject && !collatedTaskExist(selectedProjject)             // if there is project selected
+    getTasks = selectedProjject && !collatedTaskExist(selectedProjject)
       ? (getTasks = getTasks.where('projectId', '==', selectedProjject))
-      : selectedProjject === 'TODAY'                                                // if TODAY is selected
+      : selectedProjject === 'TODAY'
       ? (getTasks = getTasks.where('date', '==', moment().format('DD/MM/YYYY')))
-      : selectedProjject === 'INBOX'                                                // if INBOX is selected
+      : selectedProjject === 'INBOX'
       ? (getTasks = getTasks.where('date', '==', ''))
       : getTasks
 
