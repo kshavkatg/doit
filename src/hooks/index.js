@@ -36,7 +36,6 @@ export const useTasks = (selectedProjject) => {
       )
       setArchivedTasks(newTasks.filter(task => task.archived !== false))
     })
-    console.log(`selectedProject from useTasks: ${selectedProjject}`)
     return () => getTasks()
   }, [selectedProjject])
 
@@ -62,12 +61,9 @@ export const useProjects = () => {
           projectId: project.data().projectId,
           docId: project.id,
         }))
-        //console.log(JSON.stringify(allProjects) !== JSON.stringify(projects))
         if(JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects)
         }
-        console.log(snapshot.docs[1].data())
-        console.log(projects)
       })
 
   }, [projects])

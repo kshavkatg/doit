@@ -134,6 +134,7 @@ export const AddTasks = ({
             >
               <FaRegListAlt />
             </span>
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <span
               className="add-task_date"
               data-testid="show-task-date-overlay"
