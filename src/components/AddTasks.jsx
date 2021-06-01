@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useSelectedProjectValue } from '../context'
-import { firebase } from '../firebase'
 import moment from 'moment'
 import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa'
+import { useSelectedProjectValue } from '../context'
+import { firebase } from '../firebase'
 import { ProjectOverlay } from './ProjectOverlay'
 import { TaskDate } from './TaskDate'
 
@@ -61,6 +61,12 @@ export const AddTasks = ({
           className="add-task_shallow"
           data-testid="show-main-action"
           onClick={() => setShowMain(!showMain)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') setShowMain(!showMain)
+          }}
+          tabIndex={0}
+          role="button"
+          aria-label="Add Task"
         >
           <span className="add-task_plus">+</span>
           <span className="add-task_text">Add Task</span>
@@ -81,6 +87,16 @@ export const AddTasks = ({
                     setShowProjectOverlay(false)
                     setShowQuickAddTask(false)
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      setShowMain(false)
+                      setShowProjectOverlay(false)
+                      setShowQuickAddTask(false)
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label="Cancel adding a task"
                 >
                   x
                 </span>
@@ -123,6 +139,15 @@ export const AddTasks = ({
                   setShowMain(false)
                   setShowProjectOverlay(false)
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    setShowMain(false)
+                    setShowProjectOverlay(false)
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label="Cancel adding a task"
               >
                 Cancel
               </span>
@@ -131,14 +156,25 @@ export const AddTasks = ({
               className="add-task_project"
               data-testid="show-project-overlay"
               onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') setShowProjectOverlay(!showProjectOverlay)
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label="Choose task Project"
             >
               <FaRegListAlt />
             </span>
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <span
               className="add-task_date"
               data-testid="show-task-date-overlay"
               onClick={() => setShowTaskDate(!showTaskDate)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') setShowTaskDate(!showTaskDate)
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label="Choose task date"
             >
               <FaRegCalendarAlt />
             </span>

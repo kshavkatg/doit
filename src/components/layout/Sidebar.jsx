@@ -92,6 +92,7 @@ export const Sidebar = () => {
         }}
         tabIndex={0}
         role="button"
+        aria-label="Show/hide projects"
       >
         <span><FaChevronDown className={!showProjects? 'hidden-projects' : undefined} /></span>
         <h2> Projects</h2>

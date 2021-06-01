@@ -26,8 +26,6 @@ export const AddProject = ({ shouldShow = false }) => {
         setShow(false)
       })
 
-      //console.log(projects)
-
   return (
     <div className="add-project" data-testid="add-project">
       {show && (
@@ -52,6 +50,12 @@ export const AddProject = ({ shouldShow = false }) => {
             data-testid="hide-project-overlay"
             className="add-project_cancel"
             onClick={() => setShow(false)}
+            onKeyDown={(e) => {
+              if(e.key === 'Enter') setShow(false)
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Cencel adding project"
           >
             Cancel
           </span>
@@ -61,11 +65,23 @@ export const AddProject = ({ shouldShow = false }) => {
         className="add-project_plus"
         data-testid="add-project-action"
         onClick={() => setShow(!show)}
+        onKeyDown={(e) => {
+              if(e.key === 'Enter') setShow(!show)
+        }}
+        tabIndex={0}
+        role="button"
+        aria-label="Add Project"
       >+</span>
       <span 
         data-testid="add-project-action"
         className="add-project_text"
         onClick={() => setShow(!show)}
+        onKeyDown={(e) => {
+              if(e.key === 'Enter') setShow(!show)
+        }}
+        tabIndex={0}
+        role="button"
+        aria-label="Add Project"
       >
         Add Project
       </span>
