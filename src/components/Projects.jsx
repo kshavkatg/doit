@@ -12,20 +12,33 @@ const { projects } = useProjectsValue()
       <li
         key={project.projectId}
         data-doc-id={project.docId}
-        data-testid="project-action"
+        data-testid="project-action-parent"
         
         className={
           active === project.projectId
             ? 'active sidebar_project'
             : 'sidebar_project'
         }
-        onClick={() => {
-          setActive(project.projectId)
-          setSelectedProject(project.projectId)
-        }}
+      >
+        <div
+          onClick={() => {
+            setActive(project.projectId)
+            setSelectedProject(project.projectId)
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              setActive(project.projectId)
+              setSelectedProject(project.projectId)
+            }
+          }}
+          data-testid="project-action"
+          tabIndex={0}
+          role="button"
+          aria-label={`Show ${project.name}'s tasks `}
         >
           <IndividualProject project={project}/>
-        </li>
+        </div>
+      </li>
     ))
     
   )
