@@ -27,6 +27,19 @@
         "react-hooks/exhaustive-deps": "warn",
         "import/prefer-default-export": "off",
         "no-nested-ternary": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "block-scoped-var": "off",
+        "no-var": "off",
+        "vars-on-top": "off",
+        "no-plusplus": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ]
     }
 }

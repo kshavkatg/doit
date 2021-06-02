@@ -28,7 +28,13 @@ export const IndividualProject = ({ project }) => {
         className="sidebar_project-delete"
         data-testid="delete-project"
         onClick={() => setShowConfirm(!showConfirm)}
-        >
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') setShowConfirm(!showConfirm)
+        }}
+        tabIndex={0}
+        role="button"
+        aria-label={`Delete ${project.name} project`}
+      >
           <FaTrashAlt />
       </span>
         {showConfirm &&
@@ -42,7 +48,17 @@ export const IndividualProject = ({ project }) => {
                 >
                   Delete
                 </button>
-                <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
+                <span 
+                  onClick={() => setShowConfirm(!showConfirm)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') setShowConfirm(!showConfirm)
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label="Cencel delete project"
+                >
+                  Cancel
+                </span>
               </div>
             </div>
           </div>
