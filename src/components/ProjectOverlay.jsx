@@ -22,7 +22,8 @@ export const ProjectOverlay = ({
               <div
                 data-testid="project-overlay-action"
                 onClick={() => {
-                  
+                  setProject(project.projectId)
+                  setShowProjectOverlay(!showProjectOverlay)
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {

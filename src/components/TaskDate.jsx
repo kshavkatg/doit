@@ -27,9 +27,7 @@ showTaskDate && (
           <span>Today</span>
         </div>
       </li>
-      <li
-        
-      >
+      <li>
         <div
           data-testid="task-date-tomorrow"
           onClick={() => {
@@ -50,9 +48,7 @@ showTaskDate && (
           <span>Tomorrow</span>
         </div>
       </li>
-      <li
-        
-      >
+      <li>
         <div
           data-testid="task-date-next_week"
           onClick={() => {
