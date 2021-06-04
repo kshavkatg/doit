@@ -9,13 +9,14 @@ import { useSelectedProjectValue } from '../../context'
 import { AddProject } from '../AddProject'
 import { Projects } from '../Projects'
 
-export const Sidebar = () => {
+export const Sidebar = ({ showSidebar }) => {
   const { setSelectedProject } = useSelectedProjectValue()
   const [ active, setActive ] = useState('inbox')
   const [ showProjects, setShowProjects ] = useState(true)
 
   return (
-    <div className="sidebar" data-testid="sedebar">
+    showSidebar ?
+    (<div className="sidebar" data-testid="sedebar">
       <ul className="sidebar_generic">
         <li>
           <div
@@ -99,6 +100,6 @@ export const Sidebar = () => {
       </div>
       <ul className="sidebar_projects">{showProjects && <Projects />}</ul>
       {showProjects && <AddProject />}
-    </div>
+    </div>) : null
   )
 }

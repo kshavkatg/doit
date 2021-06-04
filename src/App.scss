@@ -242,7 +242,7 @@ $generic-bg: #4c956c;
   }
 
   .task-date {
-  &_list li {
+  &_list li div {
     padding: 0 10px;
     color: white;
     border-color: #404040;
@@ -306,14 +306,23 @@ header {
       color: white;
     }
 
-    div {
-      &.logo {
-        padding-left: 8px;
-        grid-area: 1 / 1;
+    div {      
+        &.menu-bar {
+          display: flex;
+          padding-left: 8px;
+          grid-area: 1 / 1;
+          
+          svg {
+            padding: 3px;
+            width: 33px;
+            height: 33px;
+            fill: white;
 
-        img {
-          width: 27px;
-        }
+            &:hover {
+              border-radius: 3px;
+              background-color: rgba(255, 255, 255, 0.2);
+            }
+          }  
       }
 
       &.settings {
@@ -376,15 +385,15 @@ header {
   width: 266px;
   height: calc(100vh);
   padding-top: 74px;
-  position: fixed;
+  position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
   border-right: $generic-border;
   background-color: #fafafa;
 
-  @include mq("900px") {
-    display: none;
-  }
+  // @include mq("900px") {
+  //   display: none;
+  // }
 
   li {
     &:hover .sidebar_project-delete {
@@ -581,7 +590,9 @@ header {
 /* Main Content
   ============================================ */
 .content {
-  display: grid;
+  display: flex;
+  flex-grow: 1;
+  max-width: 912px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -593,9 +604,9 @@ header {
 /* Tasks
   ============================================ */
 .tasks {
-  width: 656px;
+  flex-grow: 2;
+  width: auto;
   background-color: white;
-  margin-left: 266px;
   border-right: $generic-border;
   min-height: calc(100vh);
   vertical-align: top;

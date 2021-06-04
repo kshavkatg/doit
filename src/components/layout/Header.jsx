@@ -1,17 +1,32 @@
 import React, { useState } from 'react'
-import { FaPizzaSlice } from 'react-icons/fa'
+import { FaPizzaSlice, FaBars } from 'react-icons/fa'
 import { AddTasks } from '../AddTasks'
 
-export const Header = ({ darkMode, setDarkMode }) => {
+export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false)
   const [showQuickAddTask, setShowQuickAddTask] = useState(false)
   
   return (
     <header className="header" data-testid="header" >
       <nav>
-        <div className="logo">
-          <img src="/images/logo.png" alt="Todolist" />
-        </div>
+          <div className="menu-bar"
+            onClick={() => {
+              setShowSidebar(!showSidebar)
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                setShowSidebar(!showSidebar)
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Show/hide sidebar"
+          >
+            <FaBars />
+          </div>
+          {/* <div className="logo">
+            <img src="/images/logo.png" alt="Todolist" />
+          </div> */}
         <div className="settings">
           <ul>
             <li>
