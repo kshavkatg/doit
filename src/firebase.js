@@ -1,4 +1,9 @@
 import firebase from "firebase/app"
+// import { getAuth, 
+//   signInWithEmailAndPassword,
+//   createUserWithEmailAndPassword,
+//   onAuthStateChanged
+// } from "firebase/auth"
 import 'firebase/firestore'
 
 
@@ -13,3 +18,9 @@ const firebaseConfig = firebase.initializeApp({
 });
 
 export { firebaseConfig as firebase}
+// export {
+//   getAuth,
+//   signInWithEmailAndPassword, 
+//   createUserWithEmailAndPassword,
+//   onAuthStateChanged
+// }
