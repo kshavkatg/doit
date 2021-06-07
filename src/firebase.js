@@ -1,11 +1,6 @@
 import firebase from "firebase/app"
-// import { getAuth, 
-//   signInWithEmailAndPassword,
-//   createUserWithEmailAndPassword,
-//   onAuthStateChanged
-// } from "firebase/auth"
 import 'firebase/firestore'
-
+import 'firebase/auth'
 
 const firebaseConfig = firebase.initializeApp({
   apiKey: "AIzaSyC35te1W2sCf88jzHb-mpWHHuN33tKw7wY",
@@ -17,10 +12,5 @@ const firebaseConfig = firebase.initializeApp({
   appId: "1:289928008413:web:e2820f7488fe1d86a04134"
 });
 
+export const auth = firebaseConfig.auth()
 export { firebaseConfig as firebase}
-// export {
-//   getAuth,
-//   signInWithEmailAndPassword, 
-//   createUserWithEmailAndPassword,
-//   onAuthStateChanged
-// }

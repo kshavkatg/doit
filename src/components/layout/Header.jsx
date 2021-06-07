@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { FaPizzaSlice, FaBars } from 'react-icons/fa'
+import { FaPizzaSlice, FaBars, FaSignOutAlt } from 'react-icons/fa'
+import { auth } from '../../firebase'
 import { AddTasks } from '../AddTasks'
 
-export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar }) => {
+export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar  }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false)
   const [showQuickAddTask, setShowQuickAddTask] = useState(false)
   
@@ -47,9 +48,7 @@ export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar }) =
                 +
               </div>
             </li>
-            <li
-              
-            >
+            <li>
               <div
                 data-testid="dark-mode-action"
                 className="settings_darkmode"
@@ -59,6 +58,22 @@ export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar }) =
                 role="button"
               >
                 <FaPizzaSlice />
+              </div>
+            </li>
+            <li>
+              <div
+                data-testid="sigh-out-action"
+                className="sign-out"
+                onClick={() => {
+                  auth.signOut()
+                }}
+                onKeyDown={() => {
+                  auth.signOut()
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <FaSignOutAlt />
               </div>
             </li>
           </ul>

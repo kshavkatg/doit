@@ -3,16 +3,17 @@ import { Content } from './components/layout/Content';
 import { Header } from "./components/layout/Header"
 import { Login } from './components/Login';
 import { ProjectsProvider, SelectedProjectProvider } from './context'
+// import { auth } from './firebase';
 
 export const App = ({ darkModeDefault = false}) => {
   const [darkMode, setDarkMode] = useState(darkModeDefault)
   const [showSidebar, setShowSidebar] = useState(true)
-  const [token, setToken] = useState()
+  const [user, setUser] = useState()
 
-  if(!token) {
-    return <Login setToken={setToken} />
+  if(!user) {
+    return <Login  setUser={setUser}/>
   }
-
+  
   return (
     <SelectedProjectProvider>
       <ProjectsProvider>
@@ -21,6 +22,7 @@ export const App = ({ darkModeDefault = false}) => {
           className={darkMode? 'darkmode': undefined}
         >
           <Header 
+            setUser={setUser}
             darkMode={darkMode} 
             setDarkMode={setDarkMode} 
             showSidebar={showSidebar} 
