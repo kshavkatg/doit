@@ -1,37 +1,20 @@
-import React, { useState } from 'react'
-import { Content } from './components/layout/Content';
-import { Header } from "./components/layout/Header"
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { AuthProvider } from './context'
+import { Main } from './Main';
+import { Signup }  from './components/Signup'
 import { Login } from './components/Login';
-import { ProjectsProvider, SelectedProjectProvider } from './context'
-// import { auth } from './firebase';
+import PrivateRoute from './components/PrivateRoute';
 
-export const App = ({ darkModeDefault = false}) => {
-  const [darkMode, setDarkMode] = useState(darkModeDefault)
-  const [showSidebar, setShowSidebar] = useState(true)
-  const [user, setUser] = useState()
-
-  if(!user) {
-    return <Login  setUser={setUser}/>
-  }
-  
-  return (
-    <SelectedProjectProvider>
-      <ProjectsProvider>
-        <main 
-          data-testid="application"
-          className={darkMode? 'darkmode': undefined}
-        >
-          <Header 
-            setUser={setUser}
-            darkMode={darkMode} 
-            setDarkMode={setDarkMode} 
-            showSidebar={showSidebar} 
-            setShowSidebar={setShowSidebar}
-          />
-          <Content showSidebar={showSidebar}  />
-        </main>
-      </ProjectsProvider>
-    </SelectedProjectProvider>
-  );
-}
+export const App = () => (
+  <Router>
+    <AuthProvider>
+      <Switch>
+        <PrivateRoute exact path="/" component={Main} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
+      </Switch>
+    </AuthProvider>
+  </Router>
+);  
 

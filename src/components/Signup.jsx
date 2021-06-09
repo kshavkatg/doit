@@ -1,23 +1,27 @@
 /* eslint-disable consistent-return */
+/* eslint-disable arrow-body-style */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../context'
 
-export const Login = () => {
+export const Signup = () => {
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
-const { login } = useAuth()
-const history = useHistory()
+const [passConfirmation, setPassConfirmation] =  useState('')
 const [error, setError] = useState('')
 const [loading, setLoading] = useState(false)
+const { signUp } = useAuth()
+const history = useHistory()
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault()
 
-  setError('')
-  setLoading(true)
+  if (password !== passConfirmation) {
+    return setError('Passwords do not match')
+  }
 
-  login(email, password)
+  signUp(email, password)
     .then((user) =>{
       setLoading(false)
       console.log(user)
@@ -30,6 +34,9 @@ function handleSubmit(e) {
     })
 }
 
+
+
+
 return (
     <div className="login-wrapper">
       <form onSubmit={handleSubmit}>
@@ -37,12 +44,12 @@ return (
           <img src="/images/doit FULL.png" alt="full-logo" />
         </div>
         <div>
-          <h2>Log in</h2>
+          <h2>Sign up</h2>
         </div>
         {error && <div className="alert-error">{error}</div>}
         <div className="inputs-wrapper">
           <h3>Email</h3>
-          <label htmlFor="email">
+          <label>
             <input 
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -52,7 +59,7 @@ return (
         </div>
         <div className="inputs-wrapper">
           <h3>Password</h3>
-          <label htmlFor="password">
+          <label>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -61,16 +68,26 @@ return (
               />
           </label>
         </div>
+        <div className="inputs-wrapper">
+          <h3>Password confirmation</h3>
+          <label>
+            <input
+              type="password"
+              onChange={(e) => setPassConfirmation(e.target.value)}
+              minLength="6"
+              required
+              />
+          </label>
+        </div>
         <div>
           <button 
-            className="login"
+            className="signup"
             type="submit"
             disabled={loading}
-          >Log In</button>
+          >Sign Up</button>
         </div>
         <div className="helper-block">
-          <h3>Forgot your password?</h3>
-          <h3>Dont have an account? <Link to="/signup">Sign up</Link></h3>
+          <h3>Already signed up? <Link to="/login">Go to login</Link></h3>
         </div>
       </form>
     </div>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { FaPizzaSlice, FaBars, FaSignOutAlt } from 'react-icons/fa'
-import { auth } from '../../firebase'
+import { useAuth } from '../../context'
 import { AddTasks } from '../AddTasks'
 
 export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar  }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false)
   const [showQuickAddTask, setShowQuickAddTask] = useState(false)
+  const { logout } = useAuth()
   
   return (
     <header className="header" data-testid="header" >
@@ -25,9 +26,6 @@ export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar  }) 
           >
             <FaBars />
           </div>
-          {/* <div className="logo">
-            <img src="/images/logo.png" alt="Todolist" />
-          </div> */}
         <div className="settings">
           <ul>
             <li>
@@ -65,10 +63,10 @@ export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar  }) 
                 data-testid="sigh-out-action"
                 className="sign-out"
                 onClick={() => {
-                  auth.signOut()
+                  logout()
                 }}
                 onKeyDown={() => {
-                  auth.signOut()
+                  logout()
                 }}
                 role="button"
                 tabIndex={0}
