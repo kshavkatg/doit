@@ -48,3 +48,6 @@ export const generatePushID = (function() {
     return id;
   };
 })();
+
+// This is the uid for Demo view of the app
+// userId: 'vgWJG1rdEs1wuKBQEL7C'

@@ -1,17 +1,20 @@
+/* eslint-disable import/no-cycle */
 import { useState, useEffect } from 'react'
 import moment from 'moment'
 import { firebase } from '../firebase'
 import { collatedTaskExist } from '../helpers'
+import { useAuth } from '../context'
 
 export const useTasks = (selectedProjject) => {
   const [tasks, setTasks] = useState([])
   const [archivedTasks, setArchivedTasks] = useState([])
+  const { uniqueId } = useAuth()
 
   useEffect(() => {
     let getTasks = firebase
       .firestore()
       .collection('tasks')
-      .where('userId', '==', 'vgWJG1rdEs1wuKBQEL7C')
+      .where('userId', '==', uniqueId)
       
     
     getTasks = selectedProjject && !collatedTaskExist(selectedProjject)
@@ -46,12 +49,13 @@ export const useTasks = (selectedProjject) => {
 
 export const useProjects = () => {
   const [projects, setProjects] = useState([])
+  const { uniqueId } = useAuth()
 
   useEffect(() => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'vgWJG1rdEs1wuKBQEL7C')
+      .where('userId', '==', uniqueId)
       .orderBy('projectId')
       .get()
       .then(snapshot => {

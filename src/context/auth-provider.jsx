@@ -4,29 +4,30 @@ import { auth } from '../firebase'
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState()
+  const [uniqueId, setUniqueId] = useState('')
 
   const login = (email, pass) => auth.signInWithEmailAndPassword(email, pass)
   
   const signUp = (email, pass) => auth.createUserWithEmailAndPassword(email, pass)
 
-  const logout = () => auth.signOut()
+  const logout = () => {
+    auth.signOut()
+    setUniqueId('')
+  }
   
   const value = {
-    currentUser,
+    uniqueId,
     login,
     signUp,
     logout
   }
 
   useEffect(() => {
-    const usubscribe = auth.onAuthStateChanged(user => {
-      setCurrentUser(user)
-    })
+    const usubscribe = auth.onAuthStateChanged(user => user && setUniqueId(user.uid))
 
     return usubscribe
   }, [])
-
+  
   return (
     <AuthContext.Provider value={value}>
       {children}
