@@ -146,35 +146,33 @@ $generic-bg: #4c956c;
     background-color: #282828;
     border-color: transparent;
   }
-  
+
   .sidebar {
-    color: hsla(0,0%,100%,.87);
+    color: hsla(0, 0%, 100%, 0.87);
     background-color: #252525;
     border-color: #303030;
 
     &_generic {
       li div {
-        color: hsla(0,0%,100%,.87);
+        color: hsla(0, 0%, 100%, 0.87);
         &.active,
         &:hover {
           background-color: #303030;
         }
-        div:nth-child(1)
-        span:first-of-type
-        svg {
-          color: hsla(0,0%,100%,.87)
+        div:nth-child(1) span:first-of-type svg {
+          color: hsla(0, 0%, 100%, 0.87);
         }
       }
     }
 
     &_middle {
       h2 {
-        color: hsla(0,0%,100%,.87);
+        color: hsla(0, 0%, 100%, 0.87);
       }
       span {
         color: #4c956c;
       }
-      border-color: #303030
+      border-color: #303030;
     }
 
     &_project {
@@ -183,11 +181,11 @@ $generic-bg: #4c956c;
         background-color: #303030;
       }
     }
- 
+
     .add-project {
       &_text,
       &_cancel {
-        color: hsla(0,0%,100%,.87);
+        color: hsla(0, 0%, 100%, 0.87);
       }
       &_plus {
         color: $generic-bg;
@@ -206,15 +204,14 @@ $generic-bg: #4c956c;
   }
 
   .tasks {
-    color: hsla(0,0%,100%,.87);
+    color: hsla(0, 0%, 100%, 0.87);
     background-color: #202020;
     border-color: transparent;
-    
-    &_list 
-    li {
+
+    &_list li {
       border-color: #303030;
       span {
-        color: hsla(0,0%,100%,.87);
+        color: hsla(0, 0%, 100%, 0.87);
       }
     }
   }
@@ -224,12 +221,11 @@ $generic-bg: #4c956c;
     &_cancel,
     &_date,
     &_project {
-       color: hsla(0,0%,100%,.87);
-     }
-     &_plus {
-       color: $generic-bg;
-     }
-     
+      color: hsla(0, 0%, 100%, 0.87);
+    }
+    &_plus {
+      color: $generic-bg;
+    }
   }
 
   .project-overlay_list li div {
@@ -242,28 +238,26 @@ $generic-bg: #4c956c;
   }
 
   .task-date {
-  &_list li div {
-    padding: 0 10px;
-    color: white;
-    border-color: #404040;
+    &_list li div {
+      padding: 0 10px;
+      color: white;
+      border-color: #404040;
       background-color: #303030;
 
-    
-    span:first-of-type {
-      margin-right: 10px;
-      svg {
-        fill: white;
+      span:first-of-type {
+        margin-right: 10px;
+        svg {
+          fill: white;
+        }
+      }
+      &:hover {
+        background-color: #404040;
+        font-weight: bold;
       }
     }
-    &:hover {
-      background-color: #404040;
-      font-weight: bold;
-    }
-  }
   }
 
-  .add-task_overlay
-  .add-task_main  {
+  .add-task_overlay .add-task_main {
     color: white;
     background-color: #303030;
   }
@@ -306,23 +300,23 @@ header {
       color: white;
     }
 
-    div {      
-        &.menu-bar {
-          display: flex;
-          padding-left: 8px;
-          grid-area: 1 / 1;
-          
-          svg {
-            padding: 3px;
-            width: 33px;
-            height: 33px;
-            fill: white;
+    div {
+      &.menu-bar {
+        display: flex;
+        padding-left: 8px;
+        grid-area: 1 / 1;
 
-            &:hover {
-              border-radius: 3px;
-              background-color: rgba(255, 255, 255, 0.2);
-            }
-          }  
+        svg {
+          padding: 3px;
+          width: 33px;
+          height: 33px;
+          fill: white;
+
+          &:hover {
+            border-radius: 3px;
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+        }
       }
 
       &.settings {
@@ -362,7 +356,7 @@ header {
               padding-top: 5px;
 
               &:hover {
-               border-radius: 3px;
+                border-radius: 3px;
                 background-color: rgba(255, 255, 255, 0.2);
               }
 
@@ -372,7 +366,7 @@ header {
               }
             }
           }
-        } 
+        }
       }
     }
   }
@@ -758,7 +752,6 @@ header {
   &_submit {
     @include btn("90px");
   }
-  
 }
 
 .add-task_shallow,
@@ -790,9 +783,10 @@ header {
   width: 300px;
   right: 0;
 
-  &_list li{
+  &_list li {
     list-style-type: none;
-  } div{
+  }
+  div {
     @include task-item();
     padding: 0 10px;
     list-style: none;
@@ -822,12 +816,13 @@ header {
     right: 0;
   }
 
-  &_list li{
+  &_list li {
     list-style: none;
-  } div {
+  }
+  div {
     @include task-item();
     padding: 0 10px;
-    
+
     div:nth-child(1) {
       width: 50%;
       padding: 10px;
@@ -870,11 +865,10 @@ header {
   &_text,
   &_plus {
     &:hover {
-        font-weight: bold;
-        background-color: white;
-      }
+      font-weight: bold;
+      background-color: white;
+    }
   }
-  
 }
 
 // login and signup form
@@ -891,7 +885,7 @@ header {
       font-size: 14px;
     }
     &.helper-block {
-      color:rgba(102, 102, 102, 0.5);
+      color: rgba(102, 102, 102, 0.5);
       display: flex;
       flex-direction: column;
     }
@@ -913,7 +907,7 @@ header {
     height: fit-content;
     width: 400px;
   }
-  
+
   input {
     width: 100%;
     border: 1px solid #ddd;
@@ -925,9 +919,10 @@ header {
   }
 
   button {
-    @include btn('50px');
+    @include btn("50px");
     width: 100%;
   }
-  
-  
+  .alert-error {
+    color: red;
+  }
 }

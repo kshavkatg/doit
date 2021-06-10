@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { FaExclamationCircle } from 'react-icons/fa'
 import { useAuth } from '../context'
 
 export const Login = () => {
@@ -39,7 +40,7 @@ return (
         <div>
           <h2>Log in</h2>
         </div>
-        {error && <div className="alert-error">{error}</div>}
+        {error && <div className="alert-error"><FaExclamationCircle />{error}</div>}
         <div className="inputs-wrapper">
           <h3>Email</h3>
           <label htmlFor="email">

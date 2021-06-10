@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { FaExclamationCircle } from 'react-icons/fa'
 import { useAuth } from '../context'
 
 export const Signup = () => {
@@ -46,7 +47,7 @@ return (
         <div>
           <h2>Sign up</h2>
         </div>
-        {error && <div className="alert-error">{error}</div>}
+        {error && <div className="alert-error"><FaExclamationCircle /> {error}</div>}
         <div className="inputs-wrapper">
           <h3>Email</h3>
           <label>
