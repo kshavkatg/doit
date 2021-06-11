@@ -5,7 +5,7 @@ import { useAuth } from '../context'
 
 export default function PrivateRoute({ component: Component, ...rest }) {
   const { uniqueId } = useAuth()
-  
+  console.log(uniqueId)
   return (
     <Route
       {...rest}

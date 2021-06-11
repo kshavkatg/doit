@@ -19,17 +19,18 @@ function handleSubmit(e) {
   setLoading(true)
 
   login(email, password)
-    .then((user) =>{
+    .then(() =>{
       setLoading(false)
-      console.log(user)
+      console.log(`form login`)
       history.push("/")
     })
     .catch((err) => {
       setError(err.message)
-      console.log(err.message)
       setLoading(false)
     })
 }
+
+if (loading) return <h2>Loading...</h2>
 
 return (
     <div className="login-wrapper">

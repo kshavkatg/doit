@@ -23,14 +23,12 @@ async function handleSubmit(e) {
   }
 
   signUp(email, password)
-    .then((user) =>{
+    .then(() =>{
       setLoading(false)
-      console.log(user)
       history.push("/")
     })
     .catch((err) => {
       setError(err.message)
-      console.log(err.message)
       setLoading(false)
     })
 }
