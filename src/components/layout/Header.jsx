@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { FaPizzaSlice, FaBars, FaSignOutAlt } from 'react-icons/fa'
+import { FaPizzaSlice, FaBars } from 'react-icons/fa'
 import { useAuth } from '../../context'
 import { AddTasks } from '../AddTasks'
+import { UserSettings } from '../UserSettings'
 
 export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar  }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false)
   const [showQuickAddTask, setShowQuickAddTask] = useState(false)
-  const { logout } = useAuth()
-  
+  const [showUserSettings, setShowUserSettings] = useState(false)
+  const { userEmail } = useAuth()
+
   return (
     <header className="header" data-testid="header" >
       <nav>
@@ -63,15 +65,15 @@ export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar  }) 
                 data-testid="sigh-out-action"
                 className="sign-out"
                 onClick={() => {
-                  logout()
+                  setShowUserSettings(!showUserSettings)
                 }}
                 onKeyDown={() => {
-                  logout()
+                  setShowUserSettings(!showUserSettings)
                 }}
                 role="button"
                 tabIndex={0}
               >
-                <FaSignOutAlt />
+                <p>{userEmail.slice(0, 2)}</p>
               </div>
             </li>
           </ul>
@@ -82,6 +84,7 @@ export const Header = ({ darkMode, setDarkMode, showSidebar, setShowSidebar  }) 
           showQuickAddTask={showQuickAddTask}
           setShowQuickAddTask={setShowQuickAddTask}
         />
+        {showUserSettings && <UserSettings />}
       </nav>
     </header>
   )

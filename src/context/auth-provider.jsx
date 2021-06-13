@@ -5,17 +5,10 @@ import { auth } from '../firebase'
 
 export const AuthContext = createContext()
 
-// const getUid = () => {
-//   return localStorage.getItem("DOIT_id")
-// }
-
-// const setUid = () => {
-//   return 
-// }
-
 export const AuthProvider = ({ children }) => {
   const [uniqueId, setUniqueID] = useState()
   const [loading, setLoading] = useState(true)
+  const [userEmail, setUserEmail] = useState()
   const history = useHistory()
 
   const login = (email, pass) => auth.signInWithEmailAndPassword(email, pass)
@@ -28,29 +21,21 @@ export const AuthProvider = ({ children }) => {
     setUniqueID('')
   }
   
-
   const value = {
+    userEmail,
     uniqueId,
     login,
     signUp,
     logout
   }
 
-  // auth.onAuthStateChanged(user => {
-  //   console.log('form provider')
-  //   user && localStorage.setItem("DOIT_id", user.uid)
-  //   setUniqueID(localStorage.getItem("DOIT_id"))
-  //   // console.log(`loading state: ${loading}`)  
-  //   // console.log(`unique id: ${uniqueId}`)
-  //   setLoading(false)
-  //   history.push('/')
-  // })
-
   useEffect(() => {
     const usubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         localStorage.setItem("DOIT_id", user.uid)
         setUniqueID(localStorage.getItem("DOIT_id"))
+        setUserEmail(user.email)
+        console.log(user)
         
       }
       setLoading(false)
@@ -65,6 +50,6 @@ export const AuthProvider = ({ children }) => {
       {!loading && children}
     </AuthContext.Provider>
   )
-}
+} 
 
 export const useAuth = () => useContext(AuthContext)
