@@ -45,7 +45,7 @@ return (
         <div>
           <h2>Sign up</h2>
         </div>
-        {error && <div className="alert-error"><FaExclamationCircle /> {error}</div>}
+        {error && <div className="alert_error"><FaExclamationCircle /> {error}</div>}
         <div className="inputs-wrapper">
           <h3>Email</h3>
           <label>

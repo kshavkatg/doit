@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FaExclamationCircle } from 'react-icons/fa'
+import Loader from "react-loader-spinner";
 import { useAuth } from '../context'
 
 export const Login = () => {
@@ -30,7 +31,13 @@ function handleSubmit(e) {
     })
 }
 
-if (loading) return <h2>Loading...</h2>
+if (loading) return (
+  <div className='loading'>
+    <Loader type="Oval" color="#4c956c" height={50} width={50} />
+    <h3>Loading</h3>
+  </div>
+  
+)
 
 return (
     <div className="login-wrapper">
@@ -41,7 +48,7 @@ return (
         <div>
           <h2>Log in</h2>
         </div>
-        {error && <div className="alert-error"><FaExclamationCircle />{error}</div>}
+        {error && <div className="alert_error"><FaExclamationCircle />{error}</div>}
         <div className="inputs-wrapper">
           <h3>Email</h3>
           <label htmlFor="email">
@@ -71,7 +78,7 @@ return (
           >Log In</button>
         </div>
         <div className="helper-block">
-          <h3>Forgot your password?</h3>
+          <h3><Link to="/forgot-password">Forgot your password?</Link></h3>
           <h3>Dont have an account? <Link to="/signup">Sign up</Link></h3>
         </div>
       </form>

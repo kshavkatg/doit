@@ -15,6 +15,8 @@ export const AuthProvider = ({ children }) => {
   
   const signUp = (email, pass) => auth.createUserWithEmailAndPassword(email, pass)
 
+  const ressetPassword = (email) => auth.sendPasswordResetEmail(email)
+
   const logout = () => {
     auth.signOut()
     localStorage.removeItem("DOIT_id")
@@ -26,7 +28,8 @@ export const AuthProvider = ({ children }) => {
     uniqueId,
     login,
     signUp,
-    logout
+    logout,
+    ressetPassword
   }
 
   useEffect(() => {
