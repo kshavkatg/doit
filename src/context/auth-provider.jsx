@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, createContext, useContext, useState } from 'react'
 import { useHistory } from 'react-router'
 import { auth } from '../firebase'
@@ -38,8 +37,6 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("DOIT_id", user.uid)
         setUniqueID(localStorage.getItem("DOIT_id"))
         setUserEmail(user.email)
-        console.log(user)
-        
       }
       setLoading(false)
       history.push('/')

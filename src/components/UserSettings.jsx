@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import React from 'react'
 import { FaSignOutAlt, FaEnvelope } from 'react-icons/fa'
 import { useAuth } from '../context'

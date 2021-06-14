@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FaExclamationCircle } from 'react-icons/fa'
@@ -22,7 +21,6 @@ function handleSubmit(e) {
   login(email, password)
     .then(() =>{
       setLoading(false)
-      console.log(`form login`)
       history.push("/")
     })
     .catch((err) => {

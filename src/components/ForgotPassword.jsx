@@ -27,7 +27,6 @@ export const ForgotPassword = () => {
     })
 }
 
-
   return (
     <div className="login-wrapper">
       <form onSubmit={handleSubmit}>

@@ -1,6 +1,5 @@
-/* eslint-disable consistent-return */
-/* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable consistent-return */
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FaExclamationCircle } from 'react-icons/fa'

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { useState, useEffect } from 'react'
 import moment from 'moment'
 import { firebase } from '../firebase'

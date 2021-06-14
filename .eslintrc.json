@@ -32,6 +32,7 @@
         "no-var": "off",
         "vars-on-top": "off",
         "no-plusplus": "off",
+        "import/no-cycle": "off",
         "react/jsx-filename-extension": [
             1,
             {
