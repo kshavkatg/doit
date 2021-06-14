@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaExclamationCircle } from 'react-icons/fa'
+import fullLogo from "../../public/images/doit FULL.png"
 import { useAuth } from '../context'
 
 export const ForgotPassword = () => {
@@ -31,7 +32,7 @@ export const ForgotPassword = () => {
     <div className="login-wrapper">
       <form onSubmit={handleSubmit}>
         <div className="full-logo">
-          <img src="/images/doit FULL.png" alt="full-logo" />
+          <img src={fullLogo} alt="full-logo" />
         </div>
         <div>
           <h2>Forgot your password?</h2>

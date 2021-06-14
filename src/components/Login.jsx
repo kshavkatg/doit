@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FaExclamationCircle } from 'react-icons/fa'
 import Loader from "react-loader-spinner";
+import fullLogo from "../../public/images/doit FULL.png"
 import { useAuth } from '../context'
 
 export const Login = () => {
@@ -41,7 +42,7 @@ return (
     <div className="login-wrapper">
       <form onSubmit={handleSubmit}>
         <div className="full-logo">
-          <img src="/images/doit FULL.png" alt="full-logo" />
+          <img src={fullLogo} alt="full-logo" />
         </div>
         <div>
           <h2>Log in</h2>
