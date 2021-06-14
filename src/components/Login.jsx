@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FaExclamationCircle } from 'react-icons/fa'
 import Loader from "react-loader-spinner";
-import fullLogo from "../../public/images/doit FULL.png"
+import fullLogo from "../images/doit FULL.png"
 import { useAuth } from '../context'
 
 export const Login = () => {

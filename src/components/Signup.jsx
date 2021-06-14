@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FaExclamationCircle } from 'react-icons/fa'
-import fullLogo from "../../public/images/doit FULL.png"
+import fullLogo from "../images/doit FULL.png"
 import { useAuth } from '../context'
 
 export const Signup = () => {
@@ -32,9 +32,6 @@ async function handleSubmit(e) {
       setLoading(false)
     })
 }
-
-
-
 
 return (
     <div className="login-wrapper">
