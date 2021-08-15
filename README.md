@@ -45,13 +45,10 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#used-concepts">Used Concepts</a></li>
-        <li><a href="#features">Features</a></li>
-      </ul>
+      <li><a href="#built-with">Built With</a></li>
+      <li><a href="#used-concepts">Used Concepts</a></li>
+      <li><a href="#features">Features</a></li>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -64,20 +61,40 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project was built using Create React App as a base and inspired by popular Todoist list application (https://todoist.com).
+Advanced React task tracker application inspired by Todoist (https://todoist.com). The app features the possibility of task creation and classifying it in time ranges and between projects which can also be created as well as deleted. The app is fully responsive and has a Dark Mode.
+<br />
+<p align="center">Authorization</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/79683355/129469409-b6423ce3-f99a-4e51-83f4-274333c8a874.png" width="20%" height="20%">
+  &nbsp &nbsp &nbsp
+  <img src="https://user-images.githubusercontent.com/79683355/129469432-ef142fca-d2d6-4ac8-98d1-36873baf743d.png" width="20%" height="20%">
+  &nbsp &nbsp &nbsp
+  <img src="https://user-images.githubusercontent.com/79683355/129469443-ce103596-6223-47dc-857a-dab28794e26c.png" width="20%" height="20%">
+</p>
+<br />
+<p align="center">LightMode Webpage</p>
+<p><img src="https://user-images.githubusercontent.com/79683355/129469562-7850b802-a702-4e87-be5e-682ce1bbd8b7.png"></p>
+<br />
+<p align="center">DarkMode Webpage</p>
+<p><img src="https://user-images.githubusercontent.com/79683355/121863715-f4d0c380-cd1d-11eb-84ac-4486be9a1831.png"></p>
+<br />
+<p align="center">Tablet and Mobile</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/79683355/129468739-29e74dbc-8adb-49fb-8959-3434058a3cd2.png" width="40%" height="40%">
+  &nbsp &nbsp &nbsp &nbsp &nbsp
+  <img src="https://user-images.githubusercontent.com/79683355/129468759-4f3d88cf-3c43-4887-91e7-2008ee2ddd09.png" width="20%" height="20%">
+</p>
 <br />
 
-![8](https://user-images.githubusercontent.com/79683355/121863715-f4d0c380-cd1d-11eb-84ac-4486be9a1831.png)
-<br />
 
-### Built With
+## Built With
 
 * []()<p><img src="https://user-images.githubusercontent.com/79683355/121875159-f607ed80-cd29-11eb-990c-cc9cdae66fb5.png" width="42" height="30"> ReactJS</p>
 * []()<p><img src="https://user-images.githubusercontent.com/79683355/121875392-37989880-cd2a-11eb-9e31-8e927dc5a5d1.png" width="35" height="24"> Firebase</p>
 * []()<p><img src="https://user-images.githubusercontent.com/79683355/121875586-73336280-cd2a-11eb-8fe5-ccc204bb787c.png" width="35" height="24">  Sass</p>
 <br />
 
-### Used Concepts
+## Used Concepts
 
 * []() Create React App
 * []() Hooks API
@@ -88,19 +105,14 @@ This project was built using Create React App as a base and inspired by popular 
 * []() Firebase Realtime Database
 <br />
 
+## Features
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
+* []() DarkMode
+* []() Add and Delete Project
+* []() Add and Delete Task inside a project or one of three date ranges
+* []() Quick Add Task
+* []() Authorization, Log In, Sign In and Sign Out. Password Reset.
+<br />
 
 <!-- LICENSE -->
 ## License
@@ -112,9 +124,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Shavkat Kasymov  kshavkatg@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/doit)
+Project Link: [https://kshavkatg.github.io/doit/](https://kshavkatg.github.io/doit/)
 
 
 
