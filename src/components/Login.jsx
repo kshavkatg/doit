@@ -80,14 +80,15 @@ return (
           <h3><Link to="/forgot-password">Forgot your password?</Link></h3>
           <h3>Dont have an account? <Link to="/signup">Sign up</Link></h3>
         </div>
-      </form>
-      <div className="helper">
-        <p className="text">For authorization Sign Up,  or use:</p>
-        <div className="data">
-          <p className="email">Email: &nbsp;&nbsp; kshavkatg@gmail.com</p>
-          <p className="pass">Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12345678</p>
+        <div className="helper">
+          <p className="text">For authorization Sign Up,  or use:</p>
+          <div className="data">
+            <p className="email">Email: &nbsp;&nbsp; kshavkatg@gmail.com</p>
+            <p className="pass">Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12345678</p>
+          </div>
         </div>
-      </div>
+      </form>
+      
     </div>
   ) 
 }

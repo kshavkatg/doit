@@ -890,29 +890,7 @@ header {
   height: fit-content;
   margin: auto;
 
-  .helper {
-    bottom: 100px;
-    position: absolute;
-    width: 400px;
-    .text {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    padding: 2%;
-    font-size: 16px;
-    .data {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      border: 1px solid #4c956c;
-      border-radius: 4px;
-      background-color: #4c956c;
-      .email, .pass {
-        text-align: left;
-        color: white;
-      }
-    }
-  }
+    
   div {
     width: 90%;
     margin: 1% 0 1% 0;
@@ -943,6 +921,31 @@ header {
     justify-content: center;
     height: fit-content;
     width: 400px;
+
+    .helper {
+      margin-top: 3%;
+      width: 400px;
+      .text {
+        text-decoration: underline;
+        padding-top: 3%;
+        border-top: 2px solid #4c956c;
+        font-weight: bold;
+      }
+      padding: 2%;
+      font-size: 16px;
+      .data {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 1px solid #4c956c;
+        border-radius: 4px;
+        background-color: #4c956c;
+        .email, .pass {
+          text-align: left;
+          color: white;
+        }
+      }
+    }
   }
 
   input {
